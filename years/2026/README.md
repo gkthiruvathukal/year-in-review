@@ -1,7 +1,8 @@
-# Scholarly Works Archive: July 1, 2025 - June 30, 2026
+# Research, Scholarly, and Creative Works: July 1, 2025 - June 30, 2026
 
 This archive is organized by publication type. Items with a DOI use a DOI-safe
 folder name, replacing `/` with `_`. arXiv-only items use `arxiv_<id>`.
+Teaching works and software/application entries use site-based folders.
 
 Downloaded files are open publisher PDFs, arXiv/author versions, or Figshare
 files. Paywalled, embargoed, or non-open book entries have folders but no PDF.
@@ -52,19 +53,23 @@ Full BibTeX for the page is available at `year-in-review-2026.bib`.
 | Evaluation of Winning Solutions of 2025 Low Power Computer Vision Challenge | 2026-04-21 | arXiv: 2604.19054 | `arxiv-preprint/arxiv_2604.19054/arxiv-preprint.pdf` |
 | Now's the Time: Computer Science Must Evolve to Emphasize Software and Systems Engineering with Artificial Intelligence (AI) | 2026-04-29 | arXiv: 2604.27230 | `arxiv-preprint/arxiv_2604.27230/arxiv-preprint.pdf` |
 
-## Books
+## Books (All Time)
 
-Books use an expanded Loyola reporting scope: editions and reissues roughly one
-year before or after the July 1, 2025 - June 30, 2026 reporting window are
-included.
+Books (All Time) intentionally includes all known authored or edited books so
+older book work remains visible alongside the July 1, 2025 - June 30, 2026
+reporting-window outputs.
 
 | Work | Date Used | Identifier | Local Status |
 | --- | --- | --- | --- |
-| Introduction to Statistics in Criminal Justice and Criminology: A Practical Approach to Calculating, Using, and Interpreting Data | 2026; bookseller date 2026-05-04 | ISBN: 9781118559239; Wiley | No open version found; folder only |
-| Recursion | eBook date 2026-08-20 | ISBN: 9781032993183; CRC Press | Outside this reporting window; no open version found; folder only |
-| Intermediate C Programming | 2nd edition; copyright 2024 | ISBN: 9781032189819; Routledge | Expanded Loyola book scope; publisher page linked in HTML |
-| Codename Revolution: The Nintendo Wii Platform | Paperback edition date 2024-12-17 | ISBN: 9780262553780; MIT Press | Expanded Loyola book scope; publisher page linked in HTML |
-| Low-Power Computer Vision: Improve the Efficiency of Artificial Intelligence | Paperback/reissue date 2024-10-04 | ISBN: 9780367755287; CRC Press | Expanded Loyola book scope; publisher page linked in HTML |
+| High-Performance Java Platform Computing: Multithreaded and Networked Programming | 2000 | ISBN: 9780130161642; Prentice Hall / Sun Microsystems Press; DOI: 10.6084/m9.figshare.962958 | `books/isbn_9780130161642/high-performance-java-platform-computing.pdf` |
+| Web Programming in Python: Techniques for Integrating Linux, Apache, and MySQL | 2002 | ISBN: 9780130410658; Prentice Hall PTR; DOI: 10.6084/m9.figshare.13547990 | `books/isbn_9780130410658/web-programming-in-python.pdf` |
+| Core XML | Catalog metadata lists 2020 print-on-demand/reissue | ISBN: 9780130097163; Pearson Education | No open version found; `books/isbn_9780130097163/NOTE.txt`; publication metadata incomplete |
+| Introduction to Statistics in Criminal Justice and Criminology: A Practical Approach to Calculating, Using, and Interpreting Data | 2026; bookseller date 2026-05-04 | ISBN: 9781118559239; Wiley | No open version found; `books/isbn_9781118559239/NOTE.txt` |
+| Recursion | eBook date 2026-08-20 | ISBN: 9781032993183; CRC Press | No open version found; `books/isbn_9781032993183_OUTSIDE_WINDOW_AUG2026/NOTE.txt` |
+| Intermediate C Programming | First published 2015; 2nd edition/copyright 2024 | ISBN: 9781032189819; Routledge | No open version found; `books/isbn_9781032189819/NOTE.txt` |
+| Codename Revolution: The Nintendo Wii Platform | Original eBook/hardcover date 2012-02-24; paperback date 2024-12-17 | ISBNs: 9780262300537, 9780262016803, 9780262553780; MIT Press | No open version found; `books/isbn_9780262300537/NOTE.txt` |
+| Software Engineering for Science | Original publication 2016; copyright 2017; paperback 2020 | ISBNs: 9781498743853, 9780367574277; CRC Press | No full-book open version found; `books/isbn_9781498743853/NOTE.txt`; publisher and eCommons records linked in HTML |
+| Low-Power Computer Vision: Improve the Efficiency of Artificial Intelligence | Original publication 2022; paperback/reissue date 2024-10-04 | ISBN: 9780367755287; CRC Press; DOI: 10.1201/9781003162810 | Preview PDF linked through eCommons/publisher, but command-line download returned 403; `books/isbn_9780367755287/NOTE.txt` |
 
 ## Other Scholarly Output
 
@@ -76,9 +81,23 @@ included.
 | Inclusive Mentoring of Research Students | 2025-10-31 | DOI: 10.6084/m9.figshare.30501749 | `other-scholarly-output/10.6084_m9.figshare.30501749/inclusive-mentoring-of-research-students.pdf` |
 | Composition using Python and Abjad/LilyPond: Life Beyond Notation Software | 2026-03-21 / 2026-04-04 version | DOI: 10.6084/m9.figshare.31827391 | Main report and score PDFs downloaded; audio files intentionally not downloaded |
 
+## Teaching Work
+
+| Work | Date Used | Identifier | Local Status |
+| --- | --- | --- | --- |
+| Introduction to Computer Science in Python: Principles and Practice | Site build 2026-06-18 | introcs-python.cs.luc.edu | Landing page snapshot saved at `teaching-work/introcs-python.cs.luc.edu/index.html`; live site linked in HTML |
+| Introduction to Operating Systems: Principles and Practice | Site update 2026-05-28 | os.cs.luc.edu | Landing page snapshot saved at `teaching-work/os.cs.luc.edu/index.html`; live site linked in HTML |
+
+## Software / Applications
+
+| Work | Date Used | Identifier | Local Status |
+| --- | --- | --- | --- |
+| Jazz Scales Practice / jazz-patterns | App page last modified 2026-07-07; project release 2026-06-28 | jazz-patterns.gkt.sh requested; related live app jazz-scales.gkt.sh; GitHub: gkthiruvathukal/jazz-patterns | `jazz-patterns.gkt.sh` did not resolve during capture; related app snapshot saved at `software-applications/jazz-patterns.gkt.sh/jazz-scales-index.html`; note saved at `software-applications/jazz-patterns.gkt.sh/NOTE.txt` |
+| Loyola CS Advising Checklist | App page last modified 2026-06-21 | advising.cs.luc.edu | Landing page snapshot saved at `software-applications/advising.cs.luc.edu/index.html`; live site linked in HTML |
+
 ## Notes
 
 - Google Scholar was used as the starting point, but it did not expose all recent works.
-- ORCID, Crossref, arXiv, Loyola eCommons, publisher pages, Figshare, OpenReview, IEEE Future Directions, and book-publisher/bookstore records were used to fill gaps.
-- Books use the expanded Loyola scope noted above.
-- Other non-publication impact items are included when they have a public landing page or citable record.
+- ORCID, Crossref, arXiv, Loyola eCommons, publisher pages, Figshare, OpenReview, IEEE Future Directions, teaching sites, and book-publisher/bookstore records were used to fill gaps.
+- Books (All Time) uses the complete authored/edited book scope noted above.
+- Teaching, software/application, and other non-publication impact items are included when they have a public landing page or citable record.

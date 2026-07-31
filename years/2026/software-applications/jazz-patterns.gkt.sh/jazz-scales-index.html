@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Jazz Scales Practice ∀</title>
+    <meta name="description" content="Practice jazz scales — see the notation and play it back, online or off." />
+    <meta name="theme-color" content="#16181d" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Jazz Scales" />
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #ffffff;
+        --fg: #111111;
+        --notation-bg: #ffffff;
+        --control-bg: #f5f5f5;
+      }
+      :root[data-theme="dark"] {
+        color-scheme: dark;
+        --bg: #1a1a1a;
+        --fg: #e8e8e8;
+        --notation-bg: #1a1a1a;
+        --control-bg: #2a2a2a;
+      }
+      :root[data-theme="dark"] #notation svg { filter: invert(0.91); }
+      body {
+        font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+        margin: 0;
+        /* Respect device safe areas (Dynamic Island / notch, rounded corners,
+           home indicator, Android display cutouts) when installed standalone. */
+        padding:
+          calc(1.5rem + env(safe-area-inset-top))
+          calc(1.5rem + env(safe-area-inset-right))
+          calc(1.5rem + env(safe-area-inset-bottom))
+          calc(1.5rem + env(safe-area-inset-left));
+        max-width: 920px; margin-inline: auto;
+        background: var(--bg); color: var(--fg);
+      }
+      h1 { font-size: 1.4rem; margin: 0 0 1rem; display: flex; align-items: center; gap: 0.6rem; }
+      .version-pill {
+        font-size: 0.7rem; font-weight: 600; line-height: 1;
+        padding: 0.25rem 0.55rem; border-radius: 999px;
+        background: var(--control-bg); color: var(--fg);
+        border: 1px solid color-mix(in srgb, var(--fg) 25%, transparent);
+        text-decoration: none; letter-spacing: 0.02em; white-space: nowrap;
+      }
+      .version-pill:hover { border-color: color-mix(in srgb, var(--fg) 50%, transparent); }
+      .controls {
+        display: flex; flex-wrap: wrap; gap: 1rem 1.25rem;
+        align-items: flex-end; margin-bottom: 1.25rem;
+      }
+      /* Swing/feel controls grouped onto their own row (forced full-width so it
+         breaks below the dropdowns), wrapping together as one visual flow. */
+      .swing-controls { flex-basis: 100%; display: flex; flex-wrap: wrap; gap: 1rem 1.25rem; align-items: flex-end; }
+      .field { display: flex; flex-direction: column; gap: 0.25rem; }
+      .field label { font-size: 0.8rem; opacity: 0.75; }
+      select, input[type="number"] { box-sizing: border-box; height: 2.25rem; padding: 0.35rem 0.5rem; font-size: 1rem; background: var(--control-bg); color: var(--fg); border: 1px solid color-mix(in srgb, var(--fg) 30%, transparent); border-radius: 4px; }
+      .checkbox { flex-direction: row; align-items: center; gap: 0.4rem; }
+      input[type="range"] { width: 150px; accent-color: var(--fg); }
+      input[type="range"]:disabled { opacity: 0.4; }
+      .field:has(input:disabled) label { opacity: 0.5; }
+      .buttons { display: flex; gap: 0.5rem; }
+      button { padding: 0.45rem 1.1rem; font-size: 1rem; cursor: pointer; }
+      /* Transport: uniform square icon buttons; SVGs inherit color via currentColor. */
+      .buttons button { display: inline-flex; align-items: center; justify-content: center; width: 2.6rem; height: 2.6rem; padding: 0; border: 1px solid color-mix(in srgb, var(--fg) 40%, transparent); border-radius: 6px; background: var(--control-bg); color: var(--fg); }
+      .buttons button svg { width: 1.35rem; height: 1.35rem; fill: currentColor; }
+      .buttons button:disabled { opacity: 0.45; cursor: default; }
+      #loop.active { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+      #theme-toggle { padding: 0.3rem 0.7rem; font-size: 0.95rem; cursor: pointer; border: 1px solid color-mix(in srgb, var(--fg) 30%, transparent); border-radius: 4px; background: var(--control-bg); color: var(--fg); margin-left: auto; align-self: center; }
+      #offline-toggle, #install-btn, #about-btn { padding: 0.3rem 0.7rem; font-size: 0.8rem; cursor: pointer; border: 1px solid color-mix(in srgb, var(--fg) 30%, transparent); border-radius: 4px; background: var(--control-bg); color: var(--fg); align-self: center; }
+      /* About dialog */
+      .about-dialog { width: min(32rem, 92vw); border: 1px solid color-mix(in srgb, var(--fg) 25%, transparent); border-radius: 10px; background: var(--bg); color: var(--fg); padding: 1rem 1.1rem 1.2rem; }
+      .about-dialog::backdrop { background: rgba(0, 0, 0, 0.45); }
+      .about-head { display: flex; align-items: center; justify-content: space-between; margin: 0 0 0.6rem; }
+      .about-head h2 { font-size: 1.1rem; margin: 0; }
+      .about-close { border: none; background: none; color: var(--fg); font-size: 1.1rem; cursor: pointer; padding: 0.2rem 0.4rem; }
+      .about-body { font-size: 0.875rem; line-height: 1.55; }
+      .about-body p { margin: 0 0 0.75rem; }
+      .about-body a { color: inherit; }
+      .about-section { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; opacity: 0.6; margin: 0.9rem 0 0.5rem; font-weight: 600; }
+      .about-links { display: flex; flex-direction: column; gap: 0.4rem; }
+      .about-link { display: block; padding: 0.55rem 0.8rem; border: 1px solid color-mix(in srgb, var(--fg) 25%, transparent); border-radius: 6px; background: var(--control-bg); color: var(--fg); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
+      .about-link:hover { border-color: color-mix(in srgb, var(--fg) 55%, transparent); }
+      .about-qr { display: flex; gap: 1.25rem; justify-content: center; margin-top: 0.9rem; }
+      .about-qr-item { margin: 0; text-align: center; }
+      .about-qr-item img { display: block; border-radius: 6px; border: 1px solid color-mix(in srgb, var(--fg) 15%, transparent); }
+      .about-qr-item figcaption { font-size: 0.75rem; opacity: 0.7; margin-top: 0.35rem; }
+      .install-hint { font-size: 0.85rem; line-height: 1.45; background: color-mix(in srgb, #f2b53e 14%, var(--bg)); border: 1px solid color-mix(in srgb, var(--fg) 18%, transparent); border-left: 4px solid #f2b53e; border-radius: 6px; padding: 0.65rem 0.85rem; margin: 0 0 1rem; }
+      .install-hint ol { margin: 0.35rem 0 0; padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.15rem; }
+      .install-hint-dismiss { border: none; background: none; color: var(--fg); cursor: pointer; float: right; font-size: 1rem; line-height: 1; margin-left: 0.5rem; }
+      /* Offline-sounds picker dialog */
+      .offline-dialog { width: min(30rem, 92vw); border: 1px solid color-mix(in srgb, var(--fg) 25%, transparent); border-radius: 10px; background: var(--bg); color: var(--fg); padding: 1rem 1.1rem 1.2rem; }
+      .offline-dialog::backdrop { background: rgba(0, 0, 0, 0.45); }
+      .offline-head { display: flex; align-items: center; justify-content: space-between; margin: 0; }
+      .offline-head h2 { font-size: 1.1rem; margin: 0; }
+      .offline-close { border: none; background: none; color: var(--fg); font-size: 1.1rem; cursor: pointer; padding: 0.2rem 0.4rem; }
+      .offline-intro { font-size: 0.8rem; opacity: 0.75; margin: 0.25rem 0 0.85rem; }
+      .offline-list { display: flex; flex-direction: column; gap: 0.4rem; max-height: 55vh; overflow-y: auto; }
+      .offline-row { display: grid; grid-template-columns: 1fr auto 6.5rem; align-items: center; gap: 0.6rem; }
+      .offline-name { font-size: 0.9rem; }
+      .offline-size { font-size: 0.72rem; opacity: 0.6; text-align: right; }
+      .offline-row button { padding: 0.25rem 0.5rem; font-size: 0.8rem; cursor: pointer; border: 1px solid color-mix(in srgb, var(--fg) 30%, transparent); border-radius: 4px; background: var(--control-bg); color: var(--fg); }
+      .offline-row button:disabled { opacity: 0.5; cursor: default; }
+      .offline-foot { display: flex; align-items: center; justify-content: space-between; gap: 0.6rem; margin-top: 0.9rem; }
+      #offline-usage { font-size: 0.75rem; opacity: 0.7; }
+      #offline-download-all { padding: 0.35rem 0.7rem; font-size: 0.85rem; cursor: pointer; border: 1px solid color-mix(in srgb, var(--fg) 30%, transparent); border-radius: 4px; background: var(--control-bg); color: var(--fg); }
+      #now-playing { font-size: 1.1rem; margin: 0.5rem 0; min-height: 1.4em; }
+      #now-playing .chord { font-weight: 700; }
+      #notation { position: relative; background: var(--notation-bg); border-radius: 6px; overflow-x: auto; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; }
+      .note-highlight { position: absolute; pointer-events: none; border-radius: 3px; background: rgba(255, 196, 0, 0.35); transition: left 60ms linear, width 60ms linear; }
+      #status { font-size: 0.85rem; opacity: 0.7; min-height: 1.2em; margin-top: 0.5rem; }
+      footer { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid color-mix(in srgb, var(--fg) 20%, transparent); font-size: 0.8rem; opacity: 0.7; display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; }
+      footer a { color: inherit; text-decoration: none; display: inline-flex; align-items: center; gap: 0.3rem; }
+      footer a:hover { opacity: 0.85; text-decoration: underline; }
+      footer svg { width: 1.1em; height: 1.1em; fill: currentColor; vertical-align: middle; }
+    </style>
+    <script type="module" crossorigin src="/assets/index-BYsPVt2D.js"></script>
+  <link rel="manifest" href="/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/registerSW.js"></script>
+<meta name="theme-color" content="#16181d">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/pwa-icon.svg" sizes="any" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon-180x180.png"></head>
+  <body>
+    <h1>
+      <span class="title">Jazz Scales Practice ∀</span>
+      <a id="version-pill" class="version-pill"
+         href="https://github.com/gkthiruvathukal/jazz-patterns/releases"
+         target="_blank" rel="noopener"></a>
+      <button id="theme-toggle" type="button" aria-label="Toggle dark/light mode">☀️</button>
+      <button id="install-btn" type="button" hidden aria-label="Install app">Install</button>
+      <button id="offline-toggle" type="button" aria-label="Offline sounds" title="Manage offline sounds">Offline</button>
+      <button id="about-btn" type="button" aria-label="About this app" title="About">About</button>
+    </h1>
+    <p id="install-hint" class="install-hint" hidden></p>
+
+    <div class="controls">
+      <div class="field">
+        <label for="key">Key</label>
+        <select id="key"></select>
+      </div>
+      <div class="field">
+        <label for="scale">Scale</label>
+        <select id="scale"></select>
+      </div>
+      <div class="field">
+        <label for="instrument">Sound</label>
+        <select id="instrument"></select>
+      </div>
+      <div class="field">
+        <label for="octave">Octave</label>
+        <select id="octave"></select>
+      </div>
+      <div class="field">
+        <label for="bpm">Tempo (BPM, quarter note)</label>
+        <input id="bpm" type="number" min="40" max="240" step="1" value="96" />
+      </div>
+      <div class="field">
+        <label for="prefer">Accidentals</label>
+        <select id="prefer">
+          <option value="auto">Auto (by key)</option>
+          <option value="sharps">Sharps (♯)</option>
+          <option value="flats">Flats (♭)</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="intervals">Intervals</label>
+        <select id="intervals"></select>
+      </div>
+      <div class="swing-controls">
+        <div class="field">
+          <label for="feel">Feel</label>
+          <select id="feel"></select>
+        </div>
+        <div class="field">
+          <label for="accent">Off-beat accent (<span id="accent-val">20</span>)</label>
+          <input id="accent" type="range" min="0" max="60" step="1" value="20" />
+        </div>
+        <div class="field">
+          <label for="downbeat">Down-beat level (<span id="downbeat-val">100</span>)</label>
+          <input id="downbeat" type="range" min="30" max="120" step="1" value="100" />
+        </div>
+      </div>
+      <div class="buttons">
+        <button id="play" type="button" aria-label="Play" title="Play">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" /></svg>
+        </button>
+        <button id="stop" type="button" aria-label="Stop" title="Stop">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6h12v12H6z" /></svg>
+        </button>
+        <button id="loop" type="button" aria-pressed="false" aria-label="Loop" title="Loop">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4z" /></svg>
+        </button>
+      </div>
+    </div>
+
+    <p id="now-playing"></p>
+    <div id="notation"></div>
+    <p id="status"></p>
+
+    <footer>
+      <span>Created by <a href="https://github.com/gkthiruvathukal" target="_blank" rel="noopener">George K. Thiruvathukal</a></span>
+      <span>&middot;</span>
+      <a href="https://github.com/gkthiruvathukal/jazz-patterns" target="_blank" rel="noopener">
+        <svg viewBox="0 0 98 96" xmlns="http://www.w3.org/2000/svg" aria-label="GitHub"><path fill-rule="evenodd" clip-rule="evenodd" d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z"/></svg>
+        jazz-patterns
+      </a>
+      <span>&middot;</span>
+      <a href="/slides/" target="_blank" rel="noopener">Slides (WIP)</a>
+      <span>&middot;</span>
+      <a href="https://github.com/gkthiruvathukal/jazz-patterns/blob/main/LICENSE" target="_blank" rel="noopener">MIT License</a>
+    </footer>
+
+    <dialog id="offline-dialog" class="offline-dialog">
+      <form method="dialog" class="offline-head">
+        <h2>Offline sounds</h2>
+        <button class="offline-close" value="close" aria-label="Close">✕</button>
+      </form>
+      <p class="offline-intro">Download the sounds you want available without internet — they stay cached until you remove them.</p>
+      <div id="offline-list" class="offline-list"></div>
+      <div class="offline-foot">
+        <button id="offline-download-all" type="button">Download all (~50&nbsp;MB)</button>
+        <span id="offline-usage"></span>
+      </div>
+    </dialog>
+
+    <dialog id="about-dialog" class="about-dialog">
+      <form method="dialog" class="about-head">
+        <h2>About</h2>
+        <button class="about-close" value="close" aria-label="Close">✕</button>
+      </form>
+      <div class="about-body">
+        <p><strong>Jazz Scales Practice</strong> is free for anyone — students, teachers, and musicians at any institution, anywhere in the world. There is no cost, no account, and no catch.</p>
+        <p>If this app helps your practice, please consider two simple things: acknowledge the work when you share or reference it, and help spread the word to other musicians who might benefit.</p>
+        <p>We have no plans to monetize this project for profit. If you'd like to support the ongoing development and the research behind it, donations are warmly welcome.</p>
+        <p>Created by <a href="https://gkt.sh" target="_blank" rel="noopener">George K. Thiruvathukal</a>, Professor of Computer Science at Loyola University Chicago. <a href="https://github.com/gkthiruvathukal/jazz-patterns" target="_blank" rel="noopener">Source on GitHub</a> · <a href="/slides/" target="_blank" rel="noopener">Slides (WIP)</a></p>
+        <p class="about-section">Support this work</p>
+        <div class="about-links">
+          <a class="about-link" href="https://github.com/sponsors/gkthiruvathukal" target="_blank" rel="noopener">Sponsor me on GitHub</a>
+          <a class="about-link" href="https://loyolauniversitychicago3.my.site.com/ascendportal/s/give?dsgt=CSFUND&amp;appeal=26Y02" target="_blank" rel="noopener">Give to Loyola Computer Science</a>
+          <a class="about-link" href="https://ssl.cs.luc.edu" target="_blank" rel="noopener">Software &amp; Systems Laboratory</a>
+        </div>
+        <div class="about-qr">
+          <figure class="about-qr-item">
+            <a href="https://github.com/sponsors/gkthiruvathukal" target="_blank" rel="noopener">
+              <img src="/qr-sponsor.svg" alt="QR code: Sponsor me on GitHub" width="120" height="120" />
+            </a>
+            <figcaption>Sponsor on GitHub</figcaption>
+          </figure>
+          <figure class="about-qr-item">
+            <a href="https://loyolauniversitychicago3.my.site.com/ascendportal/s/give?dsgt=CSFUND&amp;appeal=26Y02" target="_blank" rel="noopener">
+              <img src="/qr-loyola.svg" alt="QR code: Give to Loyola Computer Science" width="120" height="120" />
+            </a>
+            <figcaption>Give to Loyola CS</figcaption>
+          </figure>
+        </div>
+        <p style="margin-top:0.85rem;font-size:0.8rem;opacity:0.7"><a href="https://github.com/gkthiruvathukal/jazz-patterns#acknowledgments" target="_blank" rel="noopener">Full acknowledgments →</a></p>
+      </div>
+    </dialog>
+
+  </body>
+</html>
