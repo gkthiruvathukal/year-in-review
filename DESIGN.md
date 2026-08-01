@@ -19,6 +19,7 @@
 - Clay accent: `#8b4a2f`
 - Soft surface: `#ece8df`
 - Shadow: `0 18px 42px rgba(32, 33, 36, 0.08)`
+- Theme schemes: `paper`, `mist`, `night`, and `slate` map these tokens to basic light/dark palettes.
 
 ## 2. Typography
 
@@ -44,6 +45,7 @@
 - Tag: small bordered status chip; green for available PDFs, amber for blocked/no-open status.
 - Toolbar: sticky filter/search row on annual archive pages.
 - Profile links: compact top-of-page link strip with inline SVG icons for personal, institutional, scholarly, and social profiles.
+- Theme selector: compact labeled select in the profile link strip; persists the selected color scheme with `localStorage`.
 
 ## 5. States
 

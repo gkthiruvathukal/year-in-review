@@ -18,6 +18,52 @@
       --clay: #8b4a2f;
       --soft: #ece8df;
       --shadow: 0 18px 42px rgba(32, 33, 36, 0.08);
+      color-scheme: light;
+    }
+
+    [data-theme="mist"] {
+      --bg: #eef3f2;
+      --paper: #fbfdfc;
+      --panel: #ffffff;
+      --ink: #1d2525;
+      --muted: #586765;
+      --line: #cbd8d5;
+      --accent: #246b72;
+      --accent-dark: #174d54;
+      --clay: #7b5a32;
+      --soft: #e1ebe8;
+      --shadow: 0 18px 42px rgba(29, 37, 37, 0.08);
+      color-scheme: light;
+    }
+
+    [data-theme="night"] {
+      --bg: #121518;
+      --paper: #181d21;
+      --panel: #20262b;
+      --ink: #f2f0e8;
+      --muted: #b8c0bd;
+      --line: #3a4247;
+      --accent: #70c8cf;
+      --accent-dark: #9cdae0;
+      --clay: #d0a46f;
+      --soft: #262d32;
+      --shadow: 0 18px 42px rgba(0, 0, 0, 0.32);
+      color-scheme: dark;
+    }
+
+    [data-theme="slate"] {
+      --bg: #1c2128;
+      --paper: #242b33;
+      --panel: #2b333d;
+      --ink: #f5f1e7;
+      --muted: #c1c8c5;
+      --line: #47515c;
+      --accent: #91c7ff;
+      --accent-dark: #c7e2ff;
+      --clay: #e0b27c;
+      --soft: #333c47;
+      --shadow: 0 18px 42px rgba(0, 0, 0, 0.28);
+      color-scheme: dark;
     }
 
     * {
@@ -117,6 +163,36 @@
       width: 16px;
       height: 16px;
       flex: 0 0 auto;
+    }
+
+    .theme-control {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 36px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.72);
+      color: var(--ink);
+      padding: 0 10px;
+      font-size: 13px;
+      font-weight: 750;
+      box-shadow: 0 8px 20px rgba(32, 33, 36, 0.05);
+    }
+
+    .theme-control select {
+      border: 0;
+      background: transparent;
+      color: inherit;
+      font: inherit;
+      font-weight: 650;
+    }
+
+    [data-theme="night"] .profile-link,
+    [data-theme="night"] .theme-control,
+    [data-theme="slate"] .profile-link,
+    [data-theme="slate"] .theme-control {
+      background: rgba(32, 38, 43, 0.78);
+      box-shadow: none;
     }
 
     .button {
@@ -281,6 +357,15 @@
             <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .9a11.1 11.1 0 0 0-3.5 21.6c.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.1.1 1.8 1.2 1.8 1.2 1 .1.6 2.1 3.4 1.5.1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.5 0-1.2.4-2.2 1.2-3-.1-.3-.5-1.5.1-3 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.5.2 2.7.1 3 .8.8 1.2 1.8 1.2 3 0 4.2-2.7 5.2-5.3 5.5.4.4.8 1.1.8 2.2v3.2c0 .4.2.7.8.6A11.1 11.1 0 0 0 12 .9Z"/></svg>
             GitHub
           </a>
+          <label class="theme-control">
+            Theme
+            <select data-theme-select aria-label="Color scheme">
+              <option value="paper">Paper</option>
+              <option value="mist">Mist</option>
+              <option value="night">Night</option>
+              <option value="slate">Slate</option>
+            </select>
+          </label>
         </nav>
         <h1>George K. Thiruvathukal: Year in Review</h1>
         <p class="lede">A yearly public archive for research, scholarly, creative, teaching, and other citable outputs. The current edition covers the academic reporting window from July 1, 2025 through June 30, 2026.</p>
@@ -320,5 +405,23 @@
   <footer>
     <div class="wrap">Static archive prepared for annual updates and deployment at year-in-review.gkt.sh.</div>
   </footer>
+  <script>
+    (() => {
+      const key = "year-review-theme";
+      const select = document.querySelector("[data-theme-select]");
+      const themes = new Set(["paper", "mist", "night", "slate"]);
+      const apply = (theme) => {
+        const next = themes.has(theme) ? theme : "paper";
+        document.documentElement.dataset.theme = next;
+        if (select) select.value = next;
+      };
+
+      apply(localStorage.getItem(key) || "paper");
+      select?.addEventListener("change", () => {
+        localStorage.setItem(key, select.value);
+        apply(select.value);
+      });
+    })();
+  </script>
 </body>
 </html>

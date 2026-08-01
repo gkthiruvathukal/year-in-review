@@ -7,6 +7,7 @@
   <style>
     :root {
       --bg: #f6f4ef;
+      --header-bg: #fffcf6;
       --panel: #ffffff;
       --ink: #202124;
       --muted: #626866;
@@ -20,6 +21,64 @@
       --warn-fg: #7a4b15;
       --soft: #ece8df;
       --shadow: 0 14px 35px rgba(32, 33, 36, 0.08);
+      color-scheme: light;
+    }
+
+    [data-theme="mist"] {
+      --bg: #eef3f2;
+      --header-bg: #fbfdfc;
+      --panel: #ffffff;
+      --ink: #1d2525;
+      --muted: #586765;
+      --line: #cbd8d5;
+      --accent: #246b72;
+      --accent-dark: #174d54;
+      --accent-2: #7b5a32;
+      --good-bg: #dfeee7;
+      --good-fg: #1c5c3c;
+      --warn-bg: #f3e9d6;
+      --warn-fg: #725014;
+      --soft: #e1ebe8;
+      --shadow: 0 14px 35px rgba(29, 37, 37, 0.08);
+      color-scheme: light;
+    }
+
+    [data-theme="night"] {
+      --bg: #121518;
+      --header-bg: #181d21;
+      --panel: #20262b;
+      --ink: #f2f0e8;
+      --muted: #b8c0bd;
+      --line: #3a4247;
+      --accent: #70c8cf;
+      --accent-dark: #9cdae0;
+      --accent-2: #d0a46f;
+      --good-bg: #173b2b;
+      --good-fg: #9fe5bd;
+      --warn-bg: #463419;
+      --warn-fg: #f1c987;
+      --soft: #262d32;
+      --shadow: 0 14px 35px rgba(0, 0, 0, 0.32);
+      color-scheme: dark;
+    }
+
+    [data-theme="slate"] {
+      --bg: #1c2128;
+      --header-bg: #242b33;
+      --panel: #2b333d;
+      --ink: #f5f1e7;
+      --muted: #c1c8c5;
+      --line: #47515c;
+      --accent: #91c7ff;
+      --accent-dark: #c7e2ff;
+      --accent-2: #e0b27c;
+      --good-bg: #183d31;
+      --good-fg: #a8e9cf;
+      --warn-bg: #46361e;
+      --warn-fg: #f0cc8e;
+      --soft: #333c47;
+      --shadow: 0 14px 35px rgba(0, 0, 0, 0.28);
+      color-scheme: dark;
     }
 
     * {
@@ -42,7 +101,7 @@
 
     header {
       border-bottom: 1px solid var(--line);
-      background: #fffcf6;
+      background: var(--header-bg);
     }
 
     .wrap {
@@ -105,6 +164,36 @@
       flex: 0 0 auto;
     }
 
+    .theme-control {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 36px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.78);
+      color: var(--ink);
+      padding: 0 10px;
+      font-size: 13px;
+      font-weight: 750;
+      box-shadow: 0 8px 20px rgba(32, 33, 36, 0.05);
+    }
+
+    .theme-control select {
+      border: 0;
+      background: transparent;
+      color: inherit;
+      font: inherit;
+      font-weight: 650;
+    }
+
+    [data-theme="night"] .profile-link,
+    [data-theme="night"] .theme-control,
+    [data-theme="slate"] .profile-link,
+    [data-theme="slate"] .theme-control {
+      background: rgba(32, 38, 43, 0.78);
+      box-shadow: none;
+    }
+
     .masthead-actions {
       display: flex;
       flex-wrap: wrap;
@@ -137,7 +226,7 @@
       top: 0;
       z-index: 10;
       border-bottom: 1px solid var(--line);
-      background: rgba(246, 244, 239, 0.94);
+      background: color-mix(in srgb, var(--bg) 94%, transparent);
       backdrop-filter: blur(12px);
     }
 
@@ -152,7 +241,7 @@
       width: min(420px, 100%);
       min-height: 40px;
       border: 1px solid var(--line);
-      background: #fff;
+      background: var(--panel);
       color: var(--ink);
       padding: 0 12px;
       font: inherit;
@@ -167,7 +256,7 @@
     button {
       min-height: 40px;
       border: 1px solid var(--line);
-      background: #fff;
+      background: var(--panel);
       color: var(--ink);
       padding: 0 12px;
       font: inherit;
@@ -310,7 +399,7 @@
       justify-content: center;
       min-height: 36px;
       border: 1px solid var(--line);
-      background: #fff;
+      background: var(--panel);
       padding: 0 10px;
       font-size: 14px;
       text-decoration: none;
@@ -380,6 +469,15 @@
           <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .9a11.1 11.1 0 0 0-3.5 21.6c.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.1.1 1.8 1.2 1.8 1.2 1 .1.6 2.1 3.4 1.5.1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.5 0-1.2.4-2.2 1.2-3-.1-.3-.5-1.5.1-3 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.5.2 2.7.1 3 .8.8 1.2 1.8 1.2 3 0 4.2-2.7 5.2-5.3 5.5.4.4.8 1.1.8 2.2v3.2c0 .4.2.7.8.6A11.1 11.1 0 0 0 12 .9Z"/></svg>
           GitHub
         </a>
+        <label class="theme-control">
+          Theme
+          <select data-theme-select aria-label="Color scheme">
+            <option value="paper">Paper</option>
+            <option value="mist">Mist</option>
+            <option value="night">Night</option>
+            <option value="slate">Slate</option>
+          </select>
+        </label>
       </nav>
       <h1>Research, Scholarly, and Creative Works: July 1, 2025 - June 30, 2026</h1>
       <div class="summary" aria-label="Archive summary">
@@ -821,6 +919,23 @@
   </main>
 
   <script>
+    (() => {
+      const key = "year-review-theme";
+      const select = document.querySelector("[data-theme-select]");
+      const themes = new Set(["paper", "mist", "night", "slate"]);
+      const apply = (theme) => {
+        const next = themes.has(theme) ? theme : "paper";
+        document.documentElement.dataset.theme = next;
+        if (select) select.value = next;
+      };
+
+      apply(localStorage.getItem(key) || "paper");
+      select?.addEventListener("change", () => {
+        localStorage.setItem(key, select.value);
+        apply(select.value);
+      });
+    })();
+
     const search = document.querySelector("#search");
     const buttons = Array.from(document.querySelectorAll("[data-filter]"));
     const works = Array.from(document.querySelectorAll(".work"));
