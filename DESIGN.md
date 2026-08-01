@@ -43,6 +43,7 @@
 - Action button/link: 44px root page, 36px archive cards; primary uses accent fill.
 - Tag: small bordered status chip; green for available PDFs, amber for blocked/no-open status.
 - Toolbar: sticky filter/search row on annual archive pages.
+- Profile links: compact top-of-page link strip with inline SVG icons for personal, institutional, scholarly, and social profiles.
 
 ## 5. States
 

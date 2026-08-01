@@ -91,6 +91,34 @@
       margin-top: 28px;
     }
 
+    .profile-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 18px 0 0;
+    }
+
+    .profile-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      min-height: 36px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.72);
+      color: var(--ink);
+      padding: 0 11px;
+      font-size: 13px;
+      font-weight: 750;
+      text-decoration: none;
+      box-shadow: 0 8px 20px rgba(32, 33, 36, 0.05);
+    }
+
+    .profile-link svg {
+      width: 16px;
+      height: 16px;
+      flex: 0 0 auto;
+    }
+
     .button {
       display: inline-flex;
       align-items: center;
@@ -228,6 +256,32 @@
     <div class="wrap hero">
       <div>
         <p class="eyebrow">year-in-review.gkt.sh</p>
+        <nav class="profile-links" aria-label="Profile links">
+          <a class="profile-link" href="https://gkt.sh/">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18Zm0 0c2.4 2.4 3.6 5.4 3.6 9S14.4 18.6 12 21m0-18C9.6 5.4 8.4 8.4 8.4 12s1.2 6.6 3.6 9M3.6 9h16.8M3.6 15h16.8"/></svg>
+            Website
+          </a>
+          <a class="profile-link" href="https://www.luc.edu/cs/aboutus/people/profiles/thiruvathukalgeorgek.shtml">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" d="M4 21h16M6 21V9l6-4 6 4v12M9 21v-6h6v6M8 11h.01M12 11h.01M16 11h.01"/></svg>
+            Loyola
+          </a>
+          <a class="profile-link" href="https://www.alcf.anl.gov/about/people/george-k-thiruvathukal">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" d="M5 20h14M7 20V8h10v12M9 8V5h6v3M10 12h4M10 16h4M17 11h2v9M5 11h2v9"/></svg>
+            Argonne
+          </a>
+          <a class="profile-link" href="https://www.linkedin.com/in/gkthiruvathukal/">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.9 8.8H3.7V20h3.2V8.8ZM5.3 4a1.9 1.9 0 1 0 0 3.8 1.9 1.9 0 0 0 0-3.8ZM20.3 13.8c0-3.4-1.8-5.2-4.4-5.2-1.9 0-2.8 1.1-3.3 1.8V8.8H9.5V20h3.2v-5.9c0-1.6.3-3 2.2-3 1.8 0 1.9 1.7 1.9 3.1V20H20v-6.2h.3Z"/></svg>
+            LinkedIn
+          </a>
+          <a class="profile-link" href="https://scholar.google.com/citations?user=Ls7yS0IAAAAJ&hl=en">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" d="M4 7 12 3l8 4-8 4-8-4Zm3 4v5c0 1.7 2.2 3 5 3s5-1.3 5-3v-5M20 8v7"/></svg>
+            Scholar
+          </a>
+          <a class="profile-link" href="https://github.com/gkthiruvathukal">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .9a11.1 11.1 0 0 0-3.5 21.6c.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.1.1 1.8 1.2 1.8 1.2 1 .1.6 2.1 3.4 1.5.1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.5 0-1.2.4-2.2 1.2-3-.1-.3-.5-1.5.1-3 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.5.2 2.7.1 3 .8.8 1.2 1.8 1.2 3 0 4.2-2.7 5.2-5.3 5.5.4.4.8 1.1.8 2.2v3.2c0 .4.2.7.8.6A11.1 11.1 0 0 0 12 .9Z"/></svg>
+            GitHub
+          </a>
+        </nav>
         <h1>George K. Thiruvathukal: Year in Review</h1>
         <p class="lede">A yearly public archive for research, scholarly, creative, teaching, and other citable outputs. The current edition covers the academic reporting window from July 1, 2025 through June 30, 2026.</p>
         <div class="hero-actions">
