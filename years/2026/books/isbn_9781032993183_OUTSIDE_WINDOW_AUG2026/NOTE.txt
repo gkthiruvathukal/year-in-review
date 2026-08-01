@@ -2,6 +2,7 @@ No open full-text version was found.
 
 Catalog entry:
 Recursion: Mathematics and Python
+Yung-Hsiang Lu and George K. Thiruvathukal
 CRC Press, eBook date 2026-08-20
 ISBN 9781032993183
 https://www.routledge.com/Recursion-Mathematics-and-Python/Lu-Thiruvathukal/p/book/9781041149538

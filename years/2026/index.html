@@ -172,6 +172,15 @@
       margin-bottom: 12px;
     }
 
+    .subsection-title {
+      margin: 22px 0 12px;
+      color: var(--muted);
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
     h2 {
       margin: 0;
       font-size: 22px;
@@ -323,7 +332,7 @@
         <div class="metric"><strong>43</strong><span>cataloged works and outputs</span></div>
         <div class="metric"><strong>31</strong><span>downloaded local PDFs</span></div>
         <div class="metric"><strong>8</strong><span>organized sections</span></div>
-        <div class="metric"><strong>9</strong><span>book entries in all-time scope</span></div>
+        <div class="metric"><strong>8</strong><span>book entries in all-time scope</span></div>
       </div>
       <div class="masthead-actions">
         <a class="action primary" href="year-in-review-2026.bib" download>Download BibTeX</a>
@@ -342,7 +351,7 @@
         <button type="button" data-filter="workshop" aria-pressed="false">Workshop</button>
         <button type="button" data-filter="preprint" aria-pressed="false">Preprints</button>
         <button type="button" data-filter="books" aria-pressed="false">Books (All Time)</button>
-        <button type="button" data-filter="teaching" aria-pressed="false">Teaching</button>
+        <button type="button" data-filter="teaching" aria-pressed="false">Lecture Materials</button>
         <button type="button" data-filter="software" aria-pressed="false">Software</button>
         <button type="button" data-filter="other" aria-pressed="false">Other</button>
       </div>
@@ -410,13 +419,17 @@
           <p class="authors">Isaac Ahlgren, Yasin N. Silva, Eric Chan-Tin, <span class="me">George K. Thiruvathukal</span>, Kyu In Lee, Neil Klingensmith</p>
           <p class="meta">2025-07-21. DOI: <a href="https://doi.org/10.1109/MobileCloud66020.2025.00015">10.1109/MobileCloud66020.2025.00015</a>.</p>
           <div class="tags"><span class="tag warn">Author PDF embargoed</span><span class="tag">Conference</span></div>
+          <div class="actions"><a class="action primary" href="https://ieeexplore.ieee.org/search/searchresult.jsp?queryText=%2210.1109%2FMobileCloud66020.2025.00015%22">IEEE Xplore</a></div>
         </article>
         <article class="work" data-category="conference" data-search="not-so-secret authentication syncbleed zero-involvement authentication systems ieee csr doi 10.1109 csr64739.2025.11130070 figshare">
           <h3>Not-so-Secret Authentication: The SyncBleed Attacks and Defenses for Zero-Involvement Authentication Systems</h3>
           <p class="authors">Isaac Ahlgren, Rushikesh Shirsat, Omar Achkar, <span class="me">George K Thiruvathukal</span>, Kyu In Lee, Neil Klingensmith</p>
           <p class="meta">2025-08-04. DOI: <a href="https://doi.org/10.1109/CSR64739.2025.11130070">10.1109/CSR64739.2025.11130070</a>.</p>
           <div class="tags"><span class="tag ok">Author PDF downloaded</span><span class="tag">Conference</span></div>
-          <div class="actions"><a class="action primary" href="conference/10.1109_CSR64739.2025.11130070/figshare-author-version.pdf">Open PDF</a></div>
+          <div class="actions">
+            <a class="action primary" href="conference/10.1109_CSR64739.2025.11130070/figshare-author-version.pdf">Open PDF</a>
+            <a class="action" href="https://ieeexplore.ieee.org/document/11130070">IEEE Xplore</a>
+          </div>
         </article>
         <article class="work" data-category="conference" data-search="cyberbullying detection adversarial strategies countermeasures sbp-brims lncs doi 10.1007 978-3-032-07715-8_9 html diagnostic">
           <h3>Analyzing Adversarial Strategies and Countermeasures for Cyberbullying Detection</h3>
@@ -470,13 +483,17 @@
           <p class="authors">Erik Pautsch, Mengjiao Han, Joseph A. Insley, Janet Knowles, Victor A. Mateevitsi, Silvio Rizzi, <span class="me">George K. Thiruvathukal</span></p>
           <p class="meta">SC Workshops / EduHPC 2025. DOI: <a href="https://doi.org/10.1145/3731599.3767386">10.1145/3731599.3767386</a>.</p>
           <div class="tags"><span class="tag warn">ACM PDF blocked/paywalled</span><span class="tag">Workshop</span></div>
+          <div class="actions"><a class="action primary" href="https://dl.acm.org/doi/10.1145/3731599.3767386">ACM Digital Library</a></div>
         </article>
         <article class="work" data-category="workshop" data-search="process-based indicators vulnerability re-introducing code changes exploratory case study svm icse doi 10.1145 3786165.3788438 arxiv 2510.26676">
           <h3>Process-based Indicators of Vulnerability Re-Introducing Code Changes: An Exploratory Case Study</h3>
           <p class="authors">Samiha Shimmi, Nicholas M. Synovic, Mona Rahimi, <span class="me">George K. Thiruvathukal</span></p>
           <p class="meta">SVM 2026 / ICSE workshop, 2026-04-12. DOI: <a href="https://doi.org/10.1145/3786165.3788438">10.1145/3786165.3788438</a>.</p>
           <div class="tags"><span class="tag ok">Preprint PDF downloaded</span><span class="tag">Workshop</span></div>
-          <div class="actions"><a class="action primary" href="workshop/10.1145_3786165.3788438/arxiv-preprint.pdf">Open PDF</a></div>
+          <div class="actions">
+            <a class="action primary" href="workshop/10.1145_3786165.3788438/arxiv-preprint.pdf">Open PDF</a>
+            <a class="action" href="https://dl.acm.org/doi/10.1145/3786165.3788438">ACM Digital Library</a>
+          </div>
         </article>
       </div>
     </section>
@@ -544,7 +561,31 @@
     </section>
 
     <section data-section="books">
-      <div class="section-head"><h2>Books (All Time)</h2><span class="count">9 items</span></div>
+      <div class="section-head"><h2>Books (All Time)</h2><span class="count">8 items</span></div>
+      <h3 class="subsection-title">2025-2026 Books</h3>
+      <div class="works">
+        <article class="work" data-category="books" data-search="introduction statistics criminal justice criminology practical approach calculating using interpreting data wiley isbn 9781118559239 no open version">
+          <h3>Introduction to Statistics in Criminal Justice and Criminology: A Practical Approach to Calculating, Using, and Interpreting Data</h3>
+          <p class="authors">Arthur J. Lurigio, Michael Perry, Nathan M. Lutz, <span class="me">George K. Thiruvathukal</span></p>
+          <p class="meta">2026; bookseller date 2026-05-04. ISBN: 9781118559239. Wiley.</p>
+          <div class="tags"><span class="tag warn">No open version found</span><span class="tag">Book</span></div>
+          <div class="actions">
+            <a class="action primary" href="https://www.wiley.com/en-us/-p-9781118559239">Publisher page</a>
+            <a class="action" href="books/isbn_9781118559239/NOTE.txt">Local note</a>
+          </div>
+        </article>
+        <article class="work" data-category="books" data-search="recursion mathematics python crc press yung-hsiang lu george thiruvathukal isbn 9781032993183 all time book august 2026">
+          <h3>Recursion: Mathematics and Python</h3>
+          <p class="authors">Yung-Hsiang Lu, <span class="me">George K. Thiruvathukal</span></p>
+          <p class="meta">eBook date 2026-08-20. ISBN: 9781032993183. CRC Press.</p>
+          <div class="tags"><span class="tag warn">No open version found</span><span class="tag">Book</span></div>
+          <div class="actions">
+            <a class="action primary" href="https://www.routledge.com/Recursion-Mathematics-and-Python/Lu-Thiruvathukal/p/book/9781041149538">Publisher page</a>
+            <a class="action" href="books/isbn_9781032993183_OUTSIDE_WINDOW_AUG2026/NOTE.txt">Local note</a>
+          </div>
+        </article>
+      </div>
+      <h3 class="subsection-title">Earlier Books</h3>
       <div class="works">
         <article class="work" data-category="books" data-search="high-performance java platform computing multithreaded networked programming prentice hall sun microsystems press isbn 9780130161642 figshare doi 10.6084 m9.figshare.962958 all time book">
           <h3>High-Performance Java Platform Computing: Multithreaded and Networked Programming</h3>
@@ -564,36 +605,6 @@
           <div class="actions">
             <a class="action primary" href="books/isbn_9780130410658/web-programming-in-python.pdf">Open PDF</a>
             <a class="action" href="https://ecommons.luc.edu/cs_facpubs/267/">eCommons record</a>
-          </div>
-        </article>
-        <article class="work" data-category="books" data-search="core xml pearson education isbn 9780130097163 all time book no open version">
-          <h3>Core XML</h3>
-          <p class="authors"><span class="me">George K. Thiruvathukal</span></p>
-          <p class="meta">Catalog metadata lists 2020 print-on-demand/reissue. ISBN: 9780130097163. Pearson Education.</p>
-          <div class="tags"><span class="tag warn">No open version found</span><span class="tag">Book</span></div>
-          <div class="actions">
-            <a class="action primary" href="https://www.goodreads.com/author/list/413897.George_K_Thiruvathukal">Catalog source</a>
-            <a class="action" href="books/isbn_9780130097163/NOTE.txt">Local note</a>
-          </div>
-        </article>
-        <article class="work" data-category="books" data-search="introduction statistics criminal justice criminology practical approach calculating using interpreting data wiley isbn 9781118559239 no open version">
-          <h3>Introduction to Statistics in Criminal Justice and Criminology: A Practical Approach to Calculating, Using, and Interpreting Data</h3>
-          <p class="authors">Arthur J. Lurigio, Michael Perry, Nathan M. Lutz, <span class="me">George K. Thiruvathukal</span></p>
-          <p class="meta">2026; bookseller date 2026-05-04. ISBN: 9781118559239. Wiley.</p>
-          <div class="tags"><span class="tag warn">No open version found</span><span class="tag">Book</span></div>
-          <div class="actions">
-            <a class="action primary" href="https://www.wiley.com/en-us/-p-9781118559239">Publisher page</a>
-            <a class="action" href="books/isbn_9781118559239/NOTE.txt">Local note</a>
-          </div>
-        </article>
-        <article class="work" data-category="books" data-search="recursion mathematics python crc press isbn 9781032993183 all time book august 2026">
-          <h3>Recursion</h3>
-          <p class="authors">Yung-Hsiang Lu, <span class="me">George K. Thiruvathukal</span></p>
-          <p class="meta">eBook date 2026-08-20. ISBN: 9781032993183. CRC Press.</p>
-          <div class="tags"><span class="tag warn">No open version found</span><span class="tag">Book</span></div>
-          <div class="actions">
-            <a class="action primary" href="https://www.routledge.com/Recursion-Mathematics-and-Python/Lu-Thiruvathukal/p/book/9781041149538">Publisher page</a>
-            <a class="action" href="books/isbn_9781032993183_OUTSIDE_WINDOW_AUG2026/NOTE.txt">Local note</a>
           </div>
         </article>
         <article class="work" data-category="books" data-search="intermediate c programming first published 2015 second edition routledge crc press isbn 9781032189819 all time book">
@@ -686,26 +697,37 @@
     </section>
 
     <section data-section="teaching">
-      <div class="section-head"><h2>Teaching Work</h2><span class="count">2 items</span></div>
+      <div class="section-head"><h2>Open-Source Lecture Materials for Teaching</h2><span class="count">3 items</span></div>
       <div class="works">
-        <article class="work" data-category="teaching" data-search="introduction computer science python principles practice teaching course site introcs-python.cs.luc.edu site build 18 june 2026 local snapshot">
+        <article class="work" data-category="teaching" data-search="introduction computer science python principles practice comp 170 first year majors course lead editor author contributors open-source lecture materials teaching course site introcs-python.cs.luc.edu site build 18 june 2026 local snapshot">
           <h3>Introduction to Computer Science in Python: Principles and Practice</h3>
-          <p class="authors"><span class="me">George K. Thiruvathukal</span></p>
-          <p class="meta">Course site build dated 2026-06-18. Site: <a href="https://introcs-python.cs.luc.edu/">introcs-python.cs.luc.edu</a>.</p>
-          <div class="tags"><span class="tag ok">Landing page snapshot saved</span><span class="tag">Teaching</span></div>
+          <p class="authors"><span class="me">George K. Thiruvathukal</span>, lead editor and author; additional contributors listed on the course site.</p>
+          <p class="meta">Open-source lecture materials for Loyola's first-year majors course, COMP 170. Course site build dated 2026-06-18. Site: <a href="https://introcs-python.cs.luc.edu/">introcs-python.cs.luc.edu</a>.</p>
+          <div class="tags"><span class="tag ok">Landing page snapshot saved</span><span class="tag">Lecture materials</span></div>
           <div class="actions">
             <a class="action primary" href="https://introcs-python.cs.luc.edu/">Open live site</a>
+            <a class="action" href="https://introcs-python.cs.luc.edu/appendix/contributors.html">Contributors</a>
             <a class="action" href="teaching-work/introcs-python.cs.luc.edu/index.html">Open snapshot</a>
           </div>
         </article>
-        <article class="work" data-category="teaching" data-search="introduction operating systems principles practice teaching course site os.cs.luc.edu site update 28 may 2026 local snapshot">
+        <article class="work" data-category="teaching" data-search="introduction operating systems principles practice comp 310 operating systems loyola open-source lecture materials teaching course site os.cs.luc.edu site update 28 may 2026 local snapshot">
           <h3>Introduction to Operating Systems: Principles and Practice</h3>
           <p class="authors"><span class="me">George K. Thiruvathukal</span></p>
-          <p class="meta">Course site update dated 2026-05-28. Site: <a href="https://os.cs.luc.edu/">os.cs.luc.edu</a>.</p>
-          <div class="tags"><span class="tag ok">Landing page snapshot saved</span><span class="tag">Teaching</span></div>
+          <p class="meta">Open-source lecture materials for COMP 310 Operating Systems at Loyola. Course site update dated 2026-05-28. Site: <a href="https://os.cs.luc.edu/">os.cs.luc.edu</a>.</p>
+          <div class="tags"><span class="tag ok">Landing page snapshot saved</span><span class="tag">Lecture materials</span></div>
           <div class="actions">
             <a class="action primary" href="https://os.cs.luc.edu/">Open live site</a>
             <a class="action" href="teaching-work/os.cs.luc.edu/index.html">Open snapshot</a>
+          </div>
+        </article>
+        <article class="work" data-category="teaching" data-search="distributed systems comp 339 loyola open-source lecture materials teaching course site ds.cs.luc.edu site update 18 may 2023 local snapshot">
+          <h3>Distributed Systems</h3>
+          <p class="authors"><span class="me">George K. Thiruvathukal</span></p>
+          <p class="meta">Open-source lecture materials for COMP 339 Distributed Systems at Loyola. Course site update dated 2023-05-18. Site: <a href="https://ds.cs.luc.edu/">ds.cs.luc.edu</a>.</p>
+          <div class="tags"><span class="tag ok">Landing page snapshot saved</span><span class="tag">Lecture materials</span></div>
+          <div class="actions">
+            <a class="action primary" href="https://ds.cs.luc.edu/">Open live site</a>
+            <a class="action" href="teaching-work/ds.cs.luc.edu/index.html">Open snapshot</a>
           </div>
         </article>
       </div>
@@ -740,7 +762,7 @@
 
     <div class="notes">
       <p>Sources used for the archive include Google Scholar, ORCID, Crossref, arXiv, Loyola eCommons, publisher pages, Figshare, OpenReview, IEEE Future Directions, teaching sites, and book-publisher/bookstore records.</p>
-      <p>Books (All Time) intentionally includes all known authored or edited books so older book work remains visible alongside the July 1, 2025 - June 30, 2026 reporting-window outputs. Teaching, software/application, and other non-publication impact items are included when they have a public landing page or citable record.</p>
+      <p>Books (All Time) separates 2025-2026 books from earlier authored or edited books. Open-source lecture materials for teaching, software/application, and other non-publication impact items are included when they have a public landing page or citable record.</p>
     </div>
   </main>
 

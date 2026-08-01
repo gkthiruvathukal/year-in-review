@@ -3,7 +3,7 @@
 ## 0. Research Log
 
 - Existing surface: `years/2026/index.html` established the archive UI and content model before this design note existed.
-- Direction: quiet academic archive with warm paper tones, teal links/actions, restrained clay accents, and document-like cards for research, scholarly, creative, and teaching work.
+- Direction: quiet academic archive with warm paper tones, teal links/actions, restrained clay accents, and document-like cards for research, scholarly, creative, and teaching materials.
 - Deployment target: static site suitable for `year-in-review.gkt.sh`, updated annually in summer.
 
 ## 1. Tokens
@@ -67,5 +67,5 @@
 - Keep a downloadable full BibTeX file beside each annual HTML page and link it from the root page and annual page.
 - For Loyola reporting, Books (All Time) may include all known authored or edited books so older titles remain visible alongside in-window work.
 - Industry/professional impact items may be included in Other Scholarly Output when they have a public landing page or citable record.
-- Teaching work may be included when a public course site or durable instructional artifact has an in-window update date.
+- Open-source lecture materials for teaching may be included when a public course site or durable instructional artifact has an in-window update date.
 - Software/application work may be included when a public app, project page, or source repository has an in-window update date.
