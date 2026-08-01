@@ -54,28 +54,15 @@ Full BibTeX for the page is available at `year-in-review-2026.bib`.
 | Evaluation of Winning Solutions of 2025 Low Power Computer Vision Challenge | 2026-04-21 | arXiv: 2604.19054 | `arxiv-preprint/arxiv_2604.19054/arxiv-preprint.pdf` |
 | Now's the Time: Computer Science Must Evolve to Emphasize Software and Systems Engineering with Artificial Intelligence (AI) | 2026-04-29 | arXiv: 2604.27230 | `arxiv-preprint/arxiv_2604.27230/arxiv-preprint.pdf` |
 
-## Books (All Time)
+## Books
 
-Books (All Time) separates 2025-2026 books from earlier authored or edited
-books.
-
-### 2025-2026 Books
+Books include only reporting-scope book entries, including finalized forthcoming
+books directly relevant to this review cycle.
 
 | Work | Date Used | Identifier | Local Status |
 | --- | --- | --- | --- |
 | Introduction to Statistics in Criminal Justice and Criminology: A Practical Approach to Calculating, Using, and Interpreting Data | 2026; bookseller date 2026-05-04 | ISBN: 9781118559239; Wiley | No open version found; `books/isbn_9781118559239/NOTE.txt` |
 | Recursion: Mathematics and Python | eBook date 2026-08-20 | ISBN: 9781032993183; CRC Press | No open version found; `books/isbn_9781032993183_OUTSIDE_WINDOW_AUG2026/NOTE.txt` |
-
-### Earlier Books
-
-| Work | Date Used | Identifier | Local Status |
-| --- | --- | --- | --- |
-| High-Performance Java Platform Computing: Multithreaded and Networked Programming | 2000 | ISBN: 9780130161642; Prentice Hall / Sun Microsystems Press; DOI: 10.6084/m9.figshare.962958 | `books/isbn_9780130161642/high-performance-java-platform-computing.pdf` |
-| Web Programming in Python: Techniques for Integrating Linux, Apache, and MySQL | 2002 | ISBN: 9780130410658; Prentice Hall PTR; DOI: 10.6084/m9.figshare.13547990 | `books/isbn_9780130410658/web-programming-in-python.pdf` |
-| Intermediate C Programming | First published 2015; 2nd edition/copyright 2024 | ISBN: 9781032189819; Routledge | No open version found; `books/isbn_9781032189819/NOTE.txt` |
-| Codename Revolution: The Nintendo Wii Platform | Original eBook/hardcover date 2012-02-24; paperback date 2024-12-17 | ISBNs: 9780262300537, 9780262016803, 9780262553780; MIT Press | No open version found; `books/isbn_9780262300537/NOTE.txt` |
-| Software Engineering for Science | Original publication 2016; copyright 2017; paperback 2020 | ISBNs: 9781498743853, 9780367574277; CRC Press | No full-book open version found; `books/isbn_9781498743853/NOTE.txt`; publisher and eCommons records linked in HTML |
-| Low-Power Computer Vision: Improve the Efficiency of Artificial Intelligence | Original publication 2022; paperback/reissue date 2024-10-04 | ISBN: 9780367755287; CRC Press; DOI: 10.1201/9781003162810 | Preview PDF linked through eCommons/publisher, but command-line download returned 403; `books/isbn_9780367755287/NOTE.txt` |
 
 ## Other Scholarly Output
 
@@ -106,5 +93,5 @@ books.
 
 - Google Scholar was used as the starting point, but it did not expose all recent works.
 - ORCID, Crossref, arXiv, Loyola eCommons, publisher pages, Figshare, OpenReview, IEEE Future Directions, teaching sites, and book-publisher/bookstore records were used to fill gaps.
-- Books (All Time) uses the complete authored/edited book scope noted above, split into 2025-2026 books and earlier books.
+- Books use the reporting-scope book rule noted above.
 - Open-source lecture materials for teaching, software/application, and other non-publication impact items are included when they have a public landing page or citable record.

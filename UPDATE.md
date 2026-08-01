@@ -64,11 +64,9 @@ available.
 
 ## Books
 
-Use `Books (All Time)` for authored or edited books, but split the visible
-section into:
-
-- `2025-2026 Books` or the equivalent current reporting-window label.
-- `Earlier Books`.
+Use `Books` for reporting-scope book entries only. Include books with in-window
+publication dates and finalized forthcoming books when they are directly
+relevant to the review cycle.
 
 Do not add catalog-only books unless they are confirmed real authored or edited
 works. If a book has no open version, keep an ISBN folder with a `NOTE.txt`
@@ -111,8 +109,8 @@ Recommended process:
 
    - Publications must have an in-window publication, online-first, conference,
      preprint, or durable release date.
-   - Books remain `Books (All Time)`, but the current-window subsection should
-     match the year being backfilled.
+   - Books should include only reporting-scope book entries for the year being
+     backfilled.
    - Teaching/software/application items should have a public page or durable
      source record. If the site predates the window but is important context,
      mark the date honestly and explain it.

@@ -68,7 +68,7 @@
 - Preserve local PDF links relative to each year folder.
 - Mark unavailable PDFs clearly and include DOI/publisher links when no local file exists.
 - Keep a downloadable full BibTeX file beside each annual HTML page and link it from the root page and annual page.
-- For Loyola reporting, Books (All Time) may include all known authored or edited books so older titles remain visible alongside in-window work.
+- For Loyola reporting, Books should include only reporting-scope books, including finalized forthcoming books when they are directly relevant to the review cycle.
 - Industry/professional impact items may be included in Other Scholarly Output when they have a public landing page or citable record.
 - Open-source lecture materials for teaching may be included when a public course site or durable instructional artifact has an in-window update date.
 - Software/application work may be included when a public app, project page, or source repository has an in-window update date.

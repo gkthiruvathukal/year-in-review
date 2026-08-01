@@ -1,9 +1,0 @@
-No open full-book version was found.
-
-Catalog entry:
-Software Engineering for Science
-CRC Press
-Original publication 2016; copyright 2017; paperback 2020
-ISBNs 9781498743853, 9780367574277
-https://www.routledge.com/Software-Engineering-for-Science/Carver-ChueHong-Thiruvathukal/p/book/9780367574277
-https://ecommons.luc.edu/cs_facpubs/128/
